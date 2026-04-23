@@ -37,7 +37,7 @@ app.get('/categorias', async(req,res) => {
 
 app.get('/libros', async(req,res) => {
     try{
-        const result= await pool.query('select * from libros');
+        const result= await pool.query('select libros.id_libro, libros.titulo, autores.nombre as nombre_autor, categorias.nombre as nombre_categoria, libros.anio_publicacion, libros.numero_identificacion, libros.cantidad from libros inner join autores on libros.id_autor=autores.id_autor inner join categorias on libros.id_categoria=categorias.id_categoria;');
         res.json(result.rows); 
     }catch(error){
         res.status(500).json({ error: error.message});
@@ -46,7 +46,7 @@ app.get('/libros', async(req,res) => {
 
 app.get('/estudiantes', async(req,res) => {
     try{
-        const result= await pool.query('select * from estudiantes');
+        const result= await pool.query('select prestamos.id_prestamo, libros.titulo as titulo_libro, estudiantes.nombre as nombre_estudiante, prestamos.fecha_prestamo, prestamos.fecha_devolucion from prestamos inner join libros on prestamos.id_libro=libros.id_libro inner join estudiantes on prestamos.id_estudiante=estudiantes.id_estudiante;');
         res.json(result.rows); 
     }catch(error){
         res.status(500).json({ error: error.message});
