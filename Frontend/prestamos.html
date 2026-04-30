@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestamos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="containee mt-5">
+    <div class="d-flex justify-content-between">
+        <h3>Prestamos </h3>
+    </div>
+
+    <button class="btn btn-success my-3">+ Annadir Prestamo</button>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Libro</th>
+                <th>Estudiante</th>
+                <th>Fecha de Prestamo</th>
+                <th>Fecha de Devolucion</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPrestamos"></tbody>
+    </table>
+
+    <script src="funciones/prestamos.js"></script>
+</body>
+</html>
